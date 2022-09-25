@@ -80,6 +80,15 @@ def MSE(X, T, H, K):
     return SSE(X, T, H, K) / DFE(H, K)
 
 
+# Compute F ratio
+def F1(X, T, H, K):
+    return MSA(T, H) / MSE(X, T, H, K)
+
+
+def F2(X, T, H, K):
+    return MSB(T, X, K) / MSE(X, T, H, K)
+
+
 A = [1, 2, 3]
 B = [1, 2, 3]
 
