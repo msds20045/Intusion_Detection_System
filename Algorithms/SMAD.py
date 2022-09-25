@@ -1,3 +1,6 @@
+import math
+
+
 # Compute Total of the squares of all observations
 def SS(X, T):
     result = list()
@@ -89,10 +92,38 @@ def F2(X, T, H, K):
     return MSB(T, X, K) / MSE(X, T, H, K)
 
 
+def Critical_diffrence(X, T, H, K, n, t):
+    s = math.sqrt(MSE(X, T, H, K))
+    L = len(A)
+    # S=standard Error
+    CD = s * math.sqrt(2 * n) * t
+    absl = abs((X[0] * T[0]) - (X[L - 1]) * T[L - 1])
+    if absl > CD:
+        print("Usage of one feature is dependent on the usage of another feature")
+    else:
+        print("Usage of one feature is not dependent on the usage of another feature")
+
+
+def Three_Sigma(X, T):
+    result = list()
+    for i, j in zip(X, T):
+        result.append(i * j)
+    Avg = sum(result) / len(T)
+    S = sum(result) - Avg
+    Square = S * S
+    Avg = Avg + Square
+    variance = Avg / len(T)
+    One_Sigma = math.sqrt(variance)
+    Two_Sigma = 2 * One_Sigma
+    Three_sigma = 3 * Two_Sigma
+    if X[len(X) - 1] > Three_sigma:
+        print(" Capture the {TIME, SRC, SRCPORT, DST,DSTP ORT, PKTS, DATA} of the network packet")
+
+
 A = [1, 2, 3]
 B = [1, 2, 3]
 
-print(SSE(A, B, 1, 1))
+# print(A[])
 ss = SS(A, B)
 
 cf = CF(A)
