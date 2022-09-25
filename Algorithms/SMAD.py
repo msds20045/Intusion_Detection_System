@@ -42,23 +42,35 @@ def SSB(T, X, K):
 
 
 # Compute Sum of Square Error
-def SSE(X,T,H,K):
-  return TotalSS(X,T)-(SST(T,H)-SSB(T,X,K))
+def SSE(X, T, H, K):
+    return TotalSS(X, T) - (SST(T, H) - SSB(T, X, K))
 
 
+# Compute Degrees of Freedom (DF)
+# DF for Total SS
+def DFT(H, k):
+    return H * k - 1
 
 
+# DF for Sum of Squares Total
+def DFt(H):
+    return H - 1
 
 
+# DF for Square Sum between
+def DFB(K):
+    return K - 1
 
 
-
+# DF for Sum of Square Error
+def DFE(H, K):
+    return DFT(H, K) - (DFt(H) + DFB(K))
 
 
 A = [1, 2, 3]
 B = [1, 2, 3]
 
-print(SSE(A, B,1,1))
+print(SSE(A, B, 1, 1))
 ss = SS(A, B)
 
 cf = CF(A)
