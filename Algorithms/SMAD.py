@@ -17,7 +17,7 @@ def CF(T):
 
 # Compute Total Sum of Squares
 def TotalSS(X, T):
-    ss = sum(SS(X, T))
+    ss = SS(X, T)
     cf = CF(T)
     result = ss - cf
     return result
@@ -41,10 +41,24 @@ def SSB(T, X, K):
     return res
 
 
+# Compute Sum of Square Error
+def SSE(X,T,H,K):
+  return TotalSS(X,T)-(SST(T,H)-SSB(T,X,K))
+
+
+
+
+
+
+
+
+
+
+
 A = [1, 2, 3]
 B = [1, 2, 3]
 
-print(SSB(A, B, 1))
+print(SSE(A, B,1,1))
 ss = SS(A, B)
 
 cf = CF(A)
