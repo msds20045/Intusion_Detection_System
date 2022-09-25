@@ -67,6 +67,19 @@ def DFE(H, K):
     return DFT(H, K) - (DFt(H) + DFB(K))
 
 
+# Compute Mean Square (MS)
+def MSA(T, H):
+    return SST(T, H) / DFt(H)
+
+
+def MSB(T, X, K):
+    return SSB(T, X, K) / DFB(K)
+
+
+def MSE(X, T, H, K):
+    return SSE(X, T, H, K) / DFE(H, K)
+
+
 A = [1, 2, 3]
 B = [1, 2, 3]
 
