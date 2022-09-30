@@ -20,9 +20,9 @@ def CF(T):
 
 # Compute Total Sum of Squares
 def TotalSS(X, T):
-    ss = SS(X, T)
-    cf = CF(T)
-    result = ss - cf
+    Ss = SS(X, T)
+    Cf = CF(T)
+    result = Ss - Cf
     return result
 
 
@@ -92,7 +92,7 @@ def F2(X, T, H, K):
     return MSB(T, X, K) / MSE(X, T, H, K)
 
 
-def Critical_diffrence(X, T, H, K, n, t):
+def Critical_Diffrence(X, T, H, K, n, t):
     s = math.sqrt(MSE(X, T, H, K))
     L = len(A)
     # S=standard Error
